@@ -1,0 +1,34 @@
+window.PORTAL_COURSES = [
+  {
+    "id": "disease-biology",
+    "name": "疾病的生物学基础",
+    "subtitle": "从免疫机制出发，理解疾病的发生与发展。",
+    "category": "医学基础",
+    "url": "https://syrius-qihao.github.io/disease-biology-class/",
+    "tags": [
+      "免疫学",
+      "发病学",
+      "题库与背诵"
+    ],
+    "features": [
+      "思维导图",
+      "知识点梳理",
+      "分类题库",
+      "课件资料"
+    ],
+    "shortcuts": [
+      {
+        "label": "知识点梳理",
+        "hash": "knowledge"
+      },
+      {
+        "label": "进入题库",
+        "hash": "bank"
+      },
+      {
+        "label": "查看课件",
+        "hash": "ppt"
+      }
+    ]
+  }
+];
