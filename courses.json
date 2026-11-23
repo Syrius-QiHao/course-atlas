@@ -1,16 +1,96 @@
-[
-  {
-    "id": "disease-biology",
-    "name": "疾病的生物学基础",
-    "subtitle": "从免疫机制出发，理解疾病的发生与发展。",
-    "category": "医学基础",
-    "url": "https://syrius-qihao.github.io/disease-biology-class/",
-    "tags": ["免疫学", "发病学", "题库与背诵"],
-    "features": ["思维导图", "知识点梳理", "分类题库", "课件资料"],
-    "shortcuts": [
-      { "label": "知识点梳理", "hash": "knowledge" },
-      { "label": "进入题库", "hash": "bank" },
-      { "label": "查看课件", "hash": "ppt" }
-    ]
-  }
-]
+{
+  "semesters": [
+    {
+      "id": "y2s1",
+      "name": "大二上"
+    },
+    {
+      "id": "y2s2",
+      "name": "大二下"
+    },
+    {
+      "id": "y3s1",
+      "name": "大三上"
+    },
+    {
+      "id": "y3s2",
+      "name": "大三下"
+    }
+  ],
+  "courses": [
+    {
+      "id": "disease-biology",
+      "semester": "y2s1",
+      "name": "疾病的生物学基础",
+      "subtitle": "按模块查看免疫学、发病学及现有寄生虫、微生物资料。",
+      "url": "https://syrius-qihao.github.io/disease-biology-class/",
+      "tags": [
+        "免疫学",
+        "发病学",
+        "寄生虫与微生物"
+      ],
+      "shortcuts": [
+        {
+          "label": "题库",
+          "hash": "bank"
+        },
+        {
+          "label": "知识点",
+          "hash": "map"
+        },
+        {
+          "label": "错题本",
+          "hash": "mistakes"
+        }
+      ]
+    },
+    {
+      "id": "signal-transduction",
+      "semester": "y2s1",
+      "name": "信号转导",
+      "subtitle": "已保留课程位置，题库和知识点随资料补充。",
+      "url": null,
+      "tags": [
+        "题库待补",
+        "知识点待补"
+      ],
+      "shortcuts": []
+    },
+    {
+      "id": "diagnostics",
+      "semester": "y2s2",
+      "name": "诊断学",
+      "subtitle": "尚未收录资料，后续按课程进度整理。",
+      "url": null,
+      "tags": [
+        "题库待补",
+        "知识点待补"
+      ],
+      "shortcuts": []
+    },
+    {
+      "id": "therapeutics",
+      "semester": "y2s2",
+      "name": "治疗学",
+      "subtitle": "尚未收录资料，后续按课程进度整理。",
+      "url": null,
+      "tags": [
+        "题库待补",
+        "知识点待补"
+      ],
+      "shortcuts": []
+    },
+    {
+      "id": "human-development",
+      "semester": "y2s2",
+      "name": "人体发育学",
+      "subtitle": "尚未收录资料，后续按课程进度整理。",
+      "url": null,
+      "tags": [
+        "题库待补",
+        "知识点待补"
+      ],
+      "shortcuts": []
+    }
+  ]
+}
