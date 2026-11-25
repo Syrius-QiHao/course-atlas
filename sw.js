@@ -1,11 +1,12 @@
 'use strict';
-const CACHE='wmu-course-portal-20261123-v1';
+const CACHE='wmu-course-portal-da02caa425409e97';
 const PREFIX='wmu-course-portal-';
-const VERSION='20261123-pwa1';
+const VERSION='20261125-priority1';
 const SCOPE=new URL(self.registration.scope);
-const FILES=['./','index.html','styles.css?v='+VERSION,'app.js?v='+VERSION,'pwa.js?v='+VERSION,'courses.js?v='+VERSION,'auth.js?v='+VERSION,'auth-config.js?v='+VERSION,'vendor/axios-1.21.0.min.js','vendor/authing-web-5.1.22.js','favicon.svg','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png','icons/apple-touch-icon.png'];
+const FILES=['./','index.html','styles.css?v='+VERSION,'app.js?v='+VERSION,'pwa.js?v='+VERSION,'courses.js?v='+VERSION,'site-links.js?v='+VERSION,'auth.js?v='+VERSION,'auth-config.js?v='+VERSION,'vendor/axios-1.21.0.min.js','vendor/authing-web-5.1.22.js','favicon.svg','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png','icons/apple-touch-icon.png'];
 const URLS=FILES.map(path=>new URL(path,SCOPE).href);
 const STATIC=new Set(URLS);
+const FRESH=new Set(['courses.js','site-links.js'].map(p=>new URL(p,SCOPE).pathname));
 const INDEX=new URL('index.html',SCOPE).href;
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(URLS)))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith(PREFIX)&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
@@ -24,5 +25,5 @@ self.addEventListener('fetch',event=>{
     })());return;
   }
   if(!STATIC.has(url.href)||url.pathname===SCOPE.pathname||url.href===INDEX)return;
-  event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=await cache.match(request);if(saved)return saved;const response=await fetch(request);if(response.ok&&response.type!=='opaque')await cache.put(request,response.clone()).catch(()=>{});return response})());
+  event.respondWith((async()=>{const cache=await caches.open(CACHE);const saved=await cache.match(request);if(FRESH.has(url.pathname)){try{const response=await fetch(request);if(response.ok){await cache.put(request,response.clone());return response;}return saved||response;}catch{return saved||new Response('当前离线，课程目录尚未缓存。',{status:503});}}if(saved)return saved;const response=await fetch(request);if(response.ok&&response.type!=='opaque')await cache.put(request,response.clone()).catch(()=>{});return response})());
 });

@@ -5,10 +5,10 @@
   "lang": "zh-CN",
   "description": "按学期进入温医大整合课程的题库与知识点。",
   "start_url": "./",
-  "scope": "/",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f5f8f8",
-  "theme_color": "#173d3a",
+  "theme_color": "#234f3c",
   "icons": [
     {
       "src": "./icons/icon-192.png",
@@ -32,23 +32,18 @@
   "shortcuts": [
     {
       "name": "课程目录",
-      "url": "./#courses",
-      "icons": [
-        {
-          "src": "./icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "short_name": "课程",
+      "url": "./#courses"
     },
     {
-      "name": "疾病课程题库",
-      "url": "/disease-biology-class/#bank",
-      "icons": [
-        {
-          "src": "./icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
+      "name": "医学图谱",
+      "short_name": "图谱",
+      "url": "./#atlas"
+    },
+    {
+      "name": "我的课程",
+      "short_name": "我的",
+      "url": "./#mine"
     }
   ]
 }

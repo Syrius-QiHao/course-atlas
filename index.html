@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#173d3a">
-  <meta name="description" content="温医大整合课程：按学期进入课程题库、知识点与错题复习。">
+  <meta name="theme-color" content="#234f3c">
+  <meta name="description" content="温医大整合课程：按学期查找独立课程网站、医学图谱和学习资料。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="温医课程">
@@ -12,43 +12,63 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css?v=20261123-pwa1">
+  <link rel="stylesheet" href="./styles.css?v=20261125-priority1">
   <script src="./vendor/axios-1.21.0.min.js" defer></script>
   <script src="./vendor/authing-web-5.1.22.js" defer></script>
-  <script src="./auth-config.js?v=20261123-pwa1" defer></script>
-  <script src="./auth.js?v=20261123-pwa1" defer></script>
-  <script src="./courses.js?v=20261123-pwa1" defer></script>
-  <script src="./app.js?v=20261123-pwa1" defer></script>
-  <script src="./pwa.js?v=20261123-pwa1" defer></script>
+  <script src="./auth-config.js?v=20261125-priority1" defer></script>
+  <script src="./auth.js?v=20261125-priority1" defer></script>
+  <script src="./site-links.js?v=20261125-priority1" defer></script>
+  <script src="./courses.js?v=20261125-priority1" defer></script>
+  <script src="./app.js?v=20261125-priority1" defer></script>
+  <script src="./pwa.js?v=20261125-priority1" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#courses">跳到课程目录</a>
+  <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header"><div class="page-width header-inner">
-    <a class="brand" href="./"><img src="./icons/icon-192.png" width="42" height="42" alt=""><span><strong>温医大整合课程</strong><small>课程 · 练习 · 回顾</small></span></a>
-    <nav class="desktop-nav" aria-label="主导航"><a href="#courses" data-view="all">课程目录</a><button type="button" data-view="mine">我的课程</button><button type="button" data-install>添加到桌面</button></nav>
-    <div id="account-actions" class="account-actions"><button class="btn small" type="button" data-login>登录 / 注册</button></div>
+    <a class="brand" href="#courses" aria-label="温医大整合课程首页"><img src="./icons/icon-192.png" width="38" height="38" alt=""><span><strong>温医大整合课程</strong><small>课程 · 图谱 · 复习</small></span></a>
+    <nav class="desktop-nav" aria-label="主导航"><a href="#courses" data-route="courses">课程目录</a><a href="#atlas" data-route="atlas">医学图谱</a><a href="#mine" data-route="mine">我的课程</a><a href="#updates" data-route="updates">更新日志</a></nav>
+    <div id="account-actions" class="account-actions"><button class="button account-button" type="button" data-login>登录 / 注册</button></div>
   </div></header>
-  <main id="main" class="page-width">
-    <div id="offline-banner" class="notice" role="status" hidden>当前离线，可以查看已缓存的课程入口。进入课程和同步记录需要联网。</div>
-    <div id="update-banner" class="notice update-notice" hidden><span>新版本已就绪。</span><button type="button" class="text-button" data-apply-update>更新并重新打开</button></div>
-    <section class="hero" aria-labelledby="hero-title"><div><div class="eyebrow">课程总入口</div><h1 id="hero-title">温医大整合课程</h1><p>按学期找到课程，进入题库与知识点，<br class="desktop-only">从上次的学习继续。</p><div class="hero-actions"><a class="btn" href="https://syrius-qihao.github.io/disease-biology-class/" data-visit="disease-biology">进入疾病的生物学基础</a><button class="btn secondary" type="button" data-install>添加到手机桌面</button></div></div><div class="hero-outline" aria-hidden="true"><span class="outline-label">大二上 · 正在整理</span><strong>疾病的生物学基础</strong><div><span>题库</span><i></i><span>知识点</span><i></i><span>错题本</span></div><span class="outline-next">下一门课程：信号转导</span></div></section>
-    <div class="content-layout">
-      <section id="courses" class="course-section" aria-labelledby="courses-title"><div class="section-head"><div><div class="eyebrow">按学期学习</div><h2 id="courses-title">课程目录</h2><p id="courses-description">现有课程直接进入，待补资料保留位置。</p></div></div>
-        <div class="course-toolbar"><div class="view-tabs" aria-label="课程范围"><button class="active" type="button" data-view="all" aria-pressed="true">全部课程</button><button type="button" data-view="mine" aria-pressed="false">我的课程</button></div><label class="search"><span class="sr-only">搜索课程</span><input id="course-search" type="search" placeholder="搜索课程、模块…"></label></div>
-        <div id="semester-tabs" class="semester-tabs" role="group" aria-label="按学期筛选"></div>
+  <main id="main" class="page-width" tabindex="-1">
+    <div id="offline-banner" class="notice" role="status" hidden>当前离线，可查看已缓存的课程入口；进入其他站点需要联网。</div>
+    <div id="update-banner" class="notice update-notice" role="status" hidden><span>新版本已就绪。</span><button type="button" class="text-button" data-apply-update>更新并重新打开</button></div>
+    <section class="welcome"><div><div id="page-eyebrow" class="eyebrow">课程总入口</div><h1 id="page-title">温医大整合课程</h1><p id="page-description">按学期找课程，从已有内容接着学。</p></div><label id="search-label" class="search-box"><span class="sr-only">搜索课程或模块</span><span class="search-mark" aria-hidden="true">⌕</span><input id="course-search" type="search" placeholder="搜索课程或模块" autocomplete="off"></label></section>
+    <section data-page="courses" id="courses-page" aria-labelledby="page-title">
+      <div class="content-layout"><div class="course-section">
+        <div class="course-toolbar"><h2 id="courses-title" class="sr-only">课程目录</h2><div id="semester-tabs" class="semester-tabs" role="group" aria-label="按学期筛选"></div></div>
+        <p id="courses-description" class="sr-only">按学期进入各门独立课程网站。</p>
         <div id="course-list" aria-live="polite"><p>正在打开课程目录…</p></div>
-      </section>
-      <aside class="study-sidebar" aria-label="学习与安装"><section class="side-section"><h2>最近访问</h2><div id="recent-visits"></div></section>
-        <section class="side-section install-card" id="install"><div class="eyebrow">手机与电脑</div><h2>放到桌面，随时打开</h2><p id="install-status">安卓和苹果均提供添加方式。</p><button type="button" class="btn secondary" data-install>查看安装方式</button></section>
-        <section class="side-section" id="updates"><h2>更新日志</h2><time datetime="2026-11-23">2026.11.23</time><h3>学期目录与桌面版入口</h3><p>按学期整理课程，新增安装指引和离线目录。疾病课程继续使用原网站与原账号。</p></section>
-      </aside>
-    </div>
+      </div>
+      <aside class="study-sidebar" aria-label="共享资料与最近访问">
+        <section class="atlas-entry"><div class="section-head"><h2>医学图谱</h2></div><div class="atlas-shortcuts"><a href="#atlas" data-atlas="books"><span aria-hidden="true">▤</span>解剖学图谱</a><a href="#atlas" data-atlas="slides"><span aria-hidden="true">◉</span>组织与病理</a><a href="#atlas" data-atlas="manuals"><span aria-hidden="true">▣</span>影像实训</a><a href="#atlas" data-atlas="photos"><span aria-hidden="true">◇</span>局解识图</a></div><a class="text-button" href="#atlas">查看全部图谱</a></section>
+        <section class="rail-section"><h2>最近访问</h2><div id="recent-visits"><p class="secondary">进入一门课程后，会在这里留下访问记录。</p></div></section>
+        <section class="rail-section"><h2>更新日志</h2><article class="log-preview"><time datetime="2026-11-25">2026.11.25</time><p>总网站采用课程优先布局，按学期查找课程与共享图谱。</p></article><a class="text-button" href="#updates">查看全部更新</a></section>
+        <section class="install-entry"><h2>随时回来学习</h2><p id="install-status">可添加到手机或电脑桌面。</p><button type="button" class="text-button" data-install>查看添加方式</button></section>
+      </aside></div>
+    </section>
+    <section data-page="atlas" id="atlas-page" aria-labelledby="atlas-title" hidden>
+      <h2 id="atlas-title" class="sr-only">医学图谱分类</h2><div class="atlas-grid">
+        <article class="atlas-card"><span class="resource-label">解剖学</span><h2>解剖学图谱</h2><p>系统解剖、局部解剖与神经解剖。按章节和书签找图，选择本机PDF阅读。</p><a class="text-button" href="#atlas" data-atlas="books">进入解剖图谱</a></article>
+        <article class="atlas-card"><span class="resource-label">组织与病理</span><h2>组织学与病理学</h2><p>正常组织虚拟切片、病理显微照片和大体标本，保留资源原站入口。</p><a class="text-button" href="#atlas" data-atlas="slides">查阅组织与病理</a></article>
+        <article class="atlas-card"><span class="resource-label">影像学</span><h2>影像实训</h2><p>按器官系统查找实训手册，查看目录与对应的PDF页码。</p><a class="text-button" href="#atlas" data-atlas="manuals">进入影像实训</a></article>
+        <article class="atlas-card"><span class="resource-label">局部解剖</span><h2>局解识图</h2><p>按原始图组查找图片，选择本机照片放大查看；编号答案继续核对。</p><a class="text-button" href="#atlas" data-atlas="photos">进入局解识图</a></article>
+      </div><p class="page-note">图谱目录与资料入口已整理，PDF及局解原图尚未随网站上传。</p>
+    </section>
+    <section data-page="updates" id="updates-page" aria-labelledby="updates-title" hidden>
+      <h2 id="updates-title" class="sr-only">更新记录</h2><div class="update-list">
+        <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">总网站</span><h2>课程优先，按学期查找</h2><p>课程目录采用两列布局，手机上自动变为单列。保留统一登录，加入共享图谱分类、最近访问和独立的更新日志页面。</p></div></article>
+        <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">课程与资料</span><h2>四门系统课程独立框架</h2><p>泌尿、免疫、心血管和血液分别建立章节与资料索引。知识点正文、题目与解析继续核对，其他课程未完待续。</p></div></article>
+        <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">共享医学图谱</span><h2>图谱目录与阅片入口</h2><p>汇总解剖图谱目录、组织病理原站资源、影像实训手册与局解图组索引。</p></div></article>
+        <article><time datetime="2026-11-23">2026.11.23</time><div><span class="resource-label">学习入口</span><h2>学期分类与桌面入口</h2><p>按学期整理课程，加入手机桌面入口和离线目录。疾病基础继续使用原独立网站。</p></div></article>
+      </div>
+    </section>
   </main>
-  <footer class="page-width site-footer"><strong>温医大整合课程</strong><p>资料随课程持续整理 · 学习记录按课程区分</p></footer>
-  <nav class="mobile-nav" aria-label="手机主导航"><a href="#courses" data-view="all"><span aria-hidden="true">▤</span>课程</a><button type="button" data-view="mine"><span aria-hidden="true">☆</span>我的课程</button><button type="button" data-install><span aria-hidden="true">＋</span>安装</button><button type="button" data-account><span aria-hidden="true">○</span>账号</button></nav>
+  <footer class="page-width site-footer"><span>温医大整合课程</span><div><span>资料随课程持续整理</span><button type="button" class="text-button" data-install>添加到桌面</button></div></footer>
+  <nav class="mobile-nav" aria-label="手机主导航"><a href="#courses" data-route="courses"><span aria-hidden="true">▤</span>课程</a><a href="#atlas" data-route="atlas"><span aria-hidden="true">◉</span>图谱</a><a href="#mine" data-route="mine"><span aria-hidden="true">☆</span>我的课程</a><a href="#updates" data-route="updates"><span aria-hidden="true">◷</span>更新</a></nav>
   <div id="toast" class="toast" role="status" hidden></div>
-  <dialog id="account-dialog" aria-labelledby="account-title"><button class="dialog-close" type="button" data-close-dialog aria-label="关闭账号窗口">×</button><div class="eyebrow">学习账号</div><h2 id="account-title">账号与学习记录</h2><p id="account-name"></p><p>沿用原来的学习账号。进入课程网站后，在页面顶部查看错题本与背诵进度的同步状态。</p><p class="muted">添加到桌面不会自动迁移旧浏览器记录；需要在原浏览器登录、导入旧记录并完成同步。课程收藏和最近访问仍保存在当前浏览器。</p><a id="manage-account" class="btn secondary" target="_blank" rel="noopener noreferrer">账号个人中心</a><button type="button" class="text-button" data-logout>退出登录</button></dialog>
-  <dialog id="install-dialog" aria-labelledby="install-title"><button class="dialog-close" type="button" data-close-dialog aria-label="关闭安装指引">×</button><div class="eyebrow">桌面学习入口</div><h2 id="install-title">添加温医课程</h2><p id="install-result" role="status"></p><div id="install-instructions"></div><p class="muted">离线时可查看课程目录。课程内容、登录和云端同步需要联网。安装后的本机记录可能与原浏览器分开，请先在原浏览器同步或备份。</p></dialog>
-  <noscript><p class="page-width">请启用 JavaScript 以筛选课程和登录。可直接打开<a href="https://syrius-qihao.github.io/disease-biology-class/">疾病的生物学基础</a>。</p></noscript>
+  <dialog id="account-dialog" aria-labelledby="account-title"><button type="button" class="dialog-close" data-close-dialog aria-label="关闭账号窗口">×</button><div class="eyebrow">统一学习账号</div><h2 id="account-title">账号与学习记录</h2><p id="account-name"></p><p>沿用原来的学习账号。课程收藏和最近访问保存在当前浏览器。</p><p class="secondary">疾病基础的学习记录同步状态以课程站内提示为准。四门新课程目前分别保存本机记录，尚未接入跨设备同步。</p><a id="manage-account" class="button" target="_blank" rel="noopener noreferrer">账号个人中心</a><button type="button" class="text-button" data-logout>退出登录</button></dialog>
+  <dialog id="install-dialog" aria-labelledby="install-title"><button type="button" class="dialog-close" data-close-dialog aria-label="关闭安装指引">×</button><div class="eyebrow">桌面学习入口</div><h2 id="install-title">添加温医课程</h2><p id="install-result" role="status"></p><div id="install-instructions"></div><p class="secondary">离线时可查看已缓存的课程入口。登录、外部阅片和未缓存的课程内容需要联网。</p></dialog>
+  <dialog id="resource-dialog" aria-labelledby="resource-title"><button type="button" class="dialog-close" data-close-dialog aria-label="关闭资料说明">×</button><div class="eyebrow">独立学习站</div><h2 id="resource-title">课程正在准备</h2><p id="resource-description"></p><p>正式网址接入后，就能从这里直接进入。</p></dialog>
+  <noscript><p class="page-width">请启用JavaScript以筛选课程和登录。可直接打开<a href="https://syrius-qihao.github.io/disease-biology-class/">疾病的生物学基础</a>。</p></noscript>
 </body>
 </html>
