@@ -1,9 +1,9 @@
 'use strict';
-const CACHE='wmu-course-portal-da02caa425409e97';
+const CACHE='wmu-course-portal-20261126-usericons-9aed0226c0';
 const PREFIX='wmu-course-portal-';
-const VERSION='20261125-priority1';
+const VERSION='20261126-usericons-9aed0226c0';
 const SCOPE=new URL(self.registration.scope);
-const FILES=['./','index.html','styles.css?v='+VERSION,'app.js?v='+VERSION,'pwa.js?v='+VERSION,'courses.js?v='+VERSION,'site-links.js?v='+VERSION,'auth.js?v='+VERSION,'auth-config.js?v='+VERSION,'vendor/axios-1.21.0.min.js','vendor/authing-web-5.1.22.js','favicon.svg','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png','icons/apple-touch-icon.png'];
+const FILES=['./','index.html','styles.css?v='+VERSION,'app.js?v='+VERSION,'pwa.js?v='+VERSION,'courses.js?v='+VERSION,'site-links.js?v='+VERSION,'auth.js?v='+VERSION,'auth-config.js?v='+VERSION,'vendor/axios-1.21.0.min.js','vendor/authing-web-5.1.22.js','favicon.svg','manifest.webmanifest','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png','icons/apple-touch-icon.png','icons/regional-anatomy.png','icons/disease-biology.png'];
 const URLS=FILES.map(path=>new URL(path,SCOPE).href);
 const STATIC=new Set(URLS);
 const FRESH=new Set(['courses.js','site-links.js'].map(p=>new URL(p,SCOPE).pathname));

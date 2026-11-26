@@ -9,18 +9,20 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="温医课程">
   <title>温医大整合课程</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css?v=20261125-priority1">
+  <link rel="stylesheet" href="./styles.css?v=20261126-usericons-9aed0226c0">
   <script src="./vendor/axios-1.21.0.min.js" defer></script>
   <script src="./vendor/authing-web-5.1.22.js" defer></script>
-  <script src="./auth-config.js?v=20261125-priority1" defer></script>
-  <script src="./auth.js?v=20261125-priority1" defer></script>
-  <script src="./site-links.js?v=20261125-priority1" defer></script>
-  <script src="./courses.js?v=20261125-priority1" defer></script>
-  <script src="./app.js?v=20261125-priority1" defer></script>
-  <script src="./pwa.js?v=20261125-priority1" defer></script>
+  <script src="./auth-config.js?v=20261126-usericons-9aed0226c0" defer></script>
+  <script src="./auth.js?v=20261126-usericons-9aed0226c0" defer></script>
+  <script src="./site-links.js?v=20261126-usericons-9aed0226c0" defer></script>
+  <script src="./courses.js?v=20261126-usericons-9aed0226c0" defer></script>
+  <script src="./app.js?v=20261126-usericons-9aed0226c0" defer></script>
+  <script src="./pwa.js?v=20261126-usericons-9aed0226c0" defer></script>
+
+  <link rel="icon" href="./icons/icon-32.png?v=20261126-usericons-9aed0226c0" type="image/png">
+  <link rel="icon" href="./icons/icon-192.png?v=20261126-usericons-9aed0226c0" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png?v=20261126-usericons-9aed0226c0">
+  <link rel="manifest" href="./manifest.webmanifest?v=20261126-usericons-9aed0226c0">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -42,20 +44,20 @@
       <aside class="study-sidebar" aria-label="共享资料与最近访问">
         <section class="atlas-entry"><div class="section-head"><h2>医学图谱</h2></div><div class="atlas-shortcuts"><a href="#atlas" data-atlas="books"><span aria-hidden="true">▤</span>解剖学图谱</a><a href="#atlas" data-atlas="slides"><span aria-hidden="true">◉</span>组织与病理</a><a href="#atlas" data-atlas="manuals"><span aria-hidden="true">▣</span>影像实训</a><a href="#atlas" data-atlas="photos"><span aria-hidden="true">◇</span>局解识图</a></div><a class="text-button" href="#atlas">查看全部图谱</a></section>
         <section class="rail-section"><h2>最近访问</h2><div id="recent-visits"><p class="secondary">进入一门课程后，会在这里留下访问记录。</p></div></section>
-        <section class="rail-section"><h2>更新日志</h2><article class="log-preview"><time datetime="2026-11-25">2026.11.25</time><p>总网站采用课程优先布局，按学期查找课程与共享图谱。</p></article><a class="text-button" href="#updates">查看全部更新</a></section>
+        <section class="rail-section"><h2>更新日志</h2><article class="log-preview"><time datetime="2026-11-26">2026.11.26</time><p>新增局部解剖学课程入口，知识点、口诀、题库和奈特图谱分别查阅。</p></article><a class="text-button" href="#updates">查看全部更新</a></section>
         <section class="install-entry"><h2>随时回来学习</h2><p id="install-status">可添加到手机或电脑桌面。</p><button type="button" class="text-button" data-install>查看添加方式</button></section>
       </aside></div>
     </section>
     <section data-page="atlas" id="atlas-page" aria-labelledby="atlas-title" hidden>
       <h2 id="atlas-title" class="sr-only">医学图谱分类</h2><div class="atlas-grid">
-        <article class="atlas-card"><span class="resource-label">解剖学</span><h2>解剖学图谱</h2><p>系统解剖、局部解剖与神经解剖。按章节和书签找图，选择本机PDF阅读。</p><a class="text-button" href="#atlas" data-atlas="books">进入解剖图谱</a></article>
+        <article class="atlas-card"><span class="resource-label">解剖学</span><h2>解剖学图谱</h2><p>三本奈特图谱按章节、书签和原PDF页码翻阅；局解章节附对应配图。</p><a class="text-button" href="#atlas" data-atlas="books">进入解剖图谱</a></article>
         <article class="atlas-card"><span class="resource-label">组织与病理</span><h2>组织学与病理学</h2><p>正常组织虚拟切片、病理显微照片和大体标本，保留资源原站入口。</p><a class="text-button" href="#atlas" data-atlas="slides">查阅组织与病理</a></article>
         <article class="atlas-card"><span class="resource-label">影像学</span><h2>影像实训</h2><p>按器官系统查找实训手册，查看目录与对应的PDF页码。</p><a class="text-button" href="#atlas" data-atlas="manuals">进入影像实训</a></article>
-        <article class="atlas-card"><span class="resource-label">局部解剖</span><h2>局解识图</h2><p>按原始图组查找图片，选择本机照片放大查看；编号答案继续核对。</p><a class="text-button" href="#atlas" data-atlas="photos">进入局解识图</a></article>
-      </div><p class="page-note">图谱目录与资料入口已整理，PDF及局解原图尚未随网站上传。</p>
+        <article class="atlas-card"><span class="resource-label">局部解剖</span><h2>局解识图</h2><p>按部位和课件查找281张局解补充图片，点击放大查看。</p><a class="text-button" href="#atlas" data-atlas="photos">进入局解识图</a></article>
+      </div><p class="page-note">图谱网站更新包已加入1571个奈特正文图页和281张局解补充图片；请先完成对应图谱站的更新。</p>
     </section>
     <section data-page="updates" id="updates-page" aria-labelledby="updates-title" hidden>
-      <h2 id="updates-title" class="sr-only">更新记录</h2><div class="update-list">
+      <h2 id="updates-title" class="sr-only">更新记录</h2><div class="update-list"><article><time datetime="2026-11-26">2026.11.26</time><div><span class="resource-label">局部解剖学</span><h2>知识点、口诀、图谱与题目</h2><p>大二上新增局部解剖学课程入口。课程包包含11章、91条知识点、19条记忆辅助和67道已核对题目，配套奈特图谱与新课程图标。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">总网站</span><h2>课程优先，按学期查找</h2><p>课程目录采用两列布局，手机上自动变为单列。保留统一登录，加入共享图谱分类、最近访问和独立的更新日志页面。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">课程与资料</span><h2>四门系统课程独立框架</h2><p>泌尿、免疫、心血管和血液分别建立章节与资料索引。知识点正文、题目与解析继续核对，其他课程未完待续。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">共享医学图谱</span><h2>图谱目录与阅片入口</h2><p>汇总解剖图谱目录、组织病理原站资源、影像实训手册与局解图组索引。</p></div></article>

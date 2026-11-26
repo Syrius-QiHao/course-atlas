@@ -44,7 +44,38 @@
         }
       ],
       "siteKey": "disease-biology",
-      "framework": false
+      "framework": false,
+      "icon": "./icons/disease-biology.png"
+    },
+    {
+      "id": "regional-anatomy",
+      "siteKey": "regional-anatomy",
+      "semester": "y2s1",
+      "name": "局部解剖学整合课程",
+      "subtitle": "按部位整理知识点、口诀、奈特图谱与已核对的资料题。",
+      "url": "https://syrius-qihao.github.io/regional-anatomy-class/",
+      "framework": false,
+      "tags": [
+        "知识点总结",
+        "口诀",
+        "奈特图谱",
+        "分类题库"
+      ],
+      "shortcuts": [
+        {
+          "label": "知识点",
+          "hash": "chapters"
+        },
+        {
+          "label": "口诀",
+          "hash": "mnemonics"
+        },
+        {
+          "label": "题库",
+          "hash": "bank"
+        }
+      ],
+      "icon": "./icons/regional-anatomy.png"
     },
     {
       "id": "signal-transduction",
