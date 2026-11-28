@@ -1,0 +1,9 @@
+.maintenance-notice{margin:0 0 24px;padding:0 20px;border:1px solid #b7cedb;border-radius:12px;background:#f0f7fb;color:#22475c;font-size:1rem;line-height:1.7;overflow-wrap:anywhere}
+.maintenance-notice summary{cursor:pointer;padding:16px 0;line-height:1.7}
+.maintenance-notice summary:focus-visible{outline:3px solid #317eab;outline-offset:3px;border-radius:4px}
+.maintenance-notice .maintenance-title{font-weight:700;margin-right:12px}
+.maintenance-notice .maintenance-brief{font-size:.9375rem}
+.maintenance-notice time{display:inline-block;font-size:.875rem;margin-left:12px;color:#49697c;white-space:nowrap}
+.maintenance-notice .maintenance-body{padding:0 0 12px;border-top:1px solid #c9dce7}
+.maintenance-notice .maintenance-body p{font-size:1rem;line-height:1.85;margin:14px 0 6px;color:inherit}
+@media(max-width:600px){.maintenance-notice{padding:0 14px}.maintenance-notice .maintenance-brief{display:block;margin-top:4px}.maintenance-notice time{display:block;margin:4px 0 0}}

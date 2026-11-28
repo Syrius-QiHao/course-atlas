@@ -9,20 +9,21 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="温医课程">
   <title>温医大整合课程</title>
-  <link rel="stylesheet" href="./styles.css?v=20261127-appicon-2f8dc600b2">
+  <link rel="stylesheet" href="./styles.css?v=20261128-maintenance1">
+  <link rel="stylesheet" href="./maintenance.css?v=20261128-maintenance1">
   <script src="./vendor/axios-1.21.0.min.js" defer></script>
   <script src="./vendor/authing-web-5.1.22.js" defer></script>
-  <script src="./auth-config.js?v=20261127-appicon-2f8dc600b2" defer></script>
-  <script src="./auth.js?v=20261127-appicon-2f8dc600b2" defer></script>
-  <script src="./site-links.js?v=20261127-appicon-2f8dc600b2" defer></script>
-  <script src="./courses.js?v=20261127-appicon-2f8dc600b2" defer></script>
-  <script src="./app.js?v=20261127-appicon-2f8dc600b2" defer></script>
-  <script src="./pwa.js?v=20261127-appicon-2f8dc600b2" defer></script>
+  <script src="./auth-config.js?v=20261128-maintenance1" defer></script>
+  <script src="./auth.js?v=20261128-maintenance1" defer></script>
+  <script src="./site-links.js?v=20261128-maintenance1" defer></script>
+  <script src="./courses.js?v=20261128-maintenance1" defer></script>
+  <script src="./app.js?v=20261128-maintenance1" defer></script>
+  <script src="./pwa.js?v=20261128-maintenance1" defer></script>
 
-  <link rel="icon" href="./icons/icon-32.png?v=20261127-appicon-2f8dc600b2" type="image/png">
-  <link rel="icon" href="./icons/icon-192.png?v=20261127-appicon-2f8dc600b2" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon-20261127.png?v=20261127-appicon-2f8dc600b2">
-  <link rel="manifest" href="./manifest.webmanifest?v=20261127-appicon-2f8dc600b2">
+  <link rel="icon" href="./icons/icon-32.png?v=20261128-maintenance1" type="image/png">
+  <link rel="icon" href="./icons/icon-192.png?v=20261128-maintenance1" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon-20261127.png?v=20261128-maintenance1">
+  <link rel="manifest" href="./manifest.webmanifest?v=20261128-maintenance1">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -36,6 +37,7 @@
     <div id="update-banner" class="notice update-notice" role="status" hidden><span>新版本已就绪。</span><button type="button" class="text-button" data-apply-update>更新并重新打开</button></div>
     <section class="welcome"><div><div id="page-eyebrow" class="eyebrow">课程总入口</div><h1 id="page-title">温医大整合课程</h1><p id="page-description">按学期找课程，从已有内容接着学。</p></div><label id="search-label" class="search-box"><span class="sr-only">搜索课程或模块</span><span class="search-mark" aria-hidden="true">⌕</span><input id="course-search" type="search" placeholder="搜索课程或模块" autocomplete="off"></label></section>
     <section data-page="courses" id="courses-page" aria-labelledby="page-title">
+      <details class="maintenance-notice"><summary><span class="maintenance-title">网站更新安排</span><span class="maintenance-brief">近期主要维护病生与局解题库，其他资料扩充暂缓</span><time datetime="2026-11-28">2026.11.28</time></summary><div class="maintenance-body"><p>近期进入期末复习阶段，我还需要兼顾课程、实验等安排。图谱、切片、影像等资料的核对和网站开发工作量较大，工具使用额度限制也影响了持续整理的效率，因此决定暂缓网站的大规模更新。</p><p>接下来主要维护和补充《疾病的生物学基础》《局部解剖学》的题库；其他课程、图谱、切片及影像资料的扩充暂时暂停，计划寒假有时间后再逐步继续。现有已上线内容继续保留，已经搜集和处理的资料也会保存。</p><p>更新节奏会优先兼顾学业安排和内容准确性，感谢大家理解。</p></div></details>
       <div class="content-layout"><div class="course-section">
         <div class="course-toolbar"><h2 id="courses-title" class="sr-only">课程目录</h2><div id="semester-tabs" class="semester-tabs" role="group" aria-label="按学期筛选"></div></div>
         <p id="courses-description" class="sr-only">按学期进入各门独立课程网站。</p>
@@ -44,7 +46,7 @@
       <aside class="study-sidebar" aria-label="共享资料与最近访问">
         <section class="atlas-entry"><div class="section-head"><h2>医学图谱</h2></div><div class="atlas-shortcuts"><a href="#atlas" data-atlas="books"><span aria-hidden="true">▤</span>解剖学图谱</a><a href="#atlas" data-atlas="slides"><span aria-hidden="true">◉</span>组织与病理</a><a href="#atlas" data-atlas="manuals"><span aria-hidden="true">▣</span>影像实训</a><a href="#atlas" data-atlas="photos"><span aria-hidden="true">◇</span>局解识图</a></div><a class="text-button" href="#atlas">查看全部图谱</a></section>
         <section class="rail-section"><h2>最近访问</h2><div id="recent-visits"><p class="secondary">进入一门课程后，会在这里留下访问记录。</p></div></section>
-        <section class="rail-section"><h2>更新日志</h2><article class="log-preview"><time datetime="2026-11-26">2026.11.26</time><p>新增局部解剖学课程入口，知识点、口诀、题库和奈特图谱分别查阅。</p></article><a class="text-button" href="#updates">查看全部更新</a></section>
+        <section class="rail-section"><h2>更新日志</h2><article class="log-preview"><time datetime="2026-11-28">2026.11.28</time><p>新增更新安排公告；疾病基础资料与题目补充来源年份。</p></article><a class="text-button" href="#updates">查看全部更新</a></section>
         <section class="install-entry"><h2>随时回来学习</h2><p id="install-status">可添加到手机或电脑桌面。</p><button type="button" class="text-button" data-install>查看添加方式</button></section>
       </aside></div>
     </section>
@@ -57,7 +59,7 @@
       </div><p class="page-note">图谱网站更新包已加入1571个奈特正文图页和281张局解补充图片；请先完成对应图谱站的更新。</p>
     </section>
     <section data-page="updates" id="updates-page" aria-labelledby="updates-title" hidden>
-      <h2 id="updates-title" class="sr-only">更新记录</h2><div class="update-list"><article><time datetime="2026-11-26">2026.11.26</time><div><span class="resource-label">局部解剖学</span><h2>知识点、口诀、图谱与题目</h2><p>大二上新增局部解剖学课程入口。课程包包含11章、91条知识点、19条记忆辅助和67道已核对题目，配套奈特图谱与新课程图标。</p></div></article>
+      <h2 id="updates-title" class="sr-only">更新记录</h2><div class="update-list"><article><time datetime="2026-11-28">2026.11.28</time><div><span class="resource-label">更新安排</span><h2>近期以病生与局解题库维护为主</h2><p>期末复习、课程与实验任务较多，资料核对和网站开发的工作量较大，工具使用额度也影响整理效率。其他课程、图谱、切片及影像资料扩充暂缓，计划寒假再逐步继续。现有内容继续保留。</p><p>本次为疾病基础资料和题目补充可核对的来源年份，未确认项保留提示；奈特图谱不新增年份标签。</p></div></article><article><time datetime="2026-11-26">2026.11.26</time><div><span class="resource-label">局部解剖学</span><h2>知识点、口诀、图谱与题目</h2><p>大二上新增局部解剖学课程入口。课程包包含11章、91条知识点、19条记忆辅助和67道已核对题目，配套奈特图谱与新课程图标。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">总网站</span><h2>课程优先，按学期查找</h2><p>课程目录采用两列布局，手机上自动变为单列。保留统一登录，加入共享图谱分类、最近访问和独立的更新日志页面。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">课程与资料</span><h2>四门系统课程独立框架</h2><p>泌尿、免疫、心血管和血液分别建立章节与资料索引。知识点正文、题目与解析继续核对，其他课程未完待续。</p></div></article>
         <article><time datetime="2026-11-25">2026.11.25</time><div><span class="resource-label">共享医学图谱</span><h2>图谱目录与阅片入口</h2><p>汇总解剖图谱目录、组织病理原站资源、影像实训手册与局解图组索引。</p></div></article>
